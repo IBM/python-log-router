@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "logrouter"
+version = "0.0.1"
+authors = [
+  { name="Martín Santillán Cooper", email="msantillancooper@ibm.com" },
+]
+description = "A package that allows logs to be routed to different handlers based on a discriminant"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = ["pyyaml"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]

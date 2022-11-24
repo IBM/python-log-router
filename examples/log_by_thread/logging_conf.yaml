@@ -1,0 +1,26 @@
+version: 1
+formatters:
+  simplest:
+    format: "%(name)s - %(levelname)s - %(message)s"
+  simple:
+    format: "%(asctime)s - %(name)s - %(filename)s - line: %(lineno)d - %(levelname)s - %(message)s"
+filters:
+  default-filter:
+    (): logrouter.logrouter.DefaultFilter
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  logrouter:
+    class: logrouter.logrouter.LogRouter
+    level: DEBUG
+    formatter: simple
+    discriminator: threadName
+    filters: [default-filter]
+    single_handler_class: logrouter.logrouter.DefaultHandler
+
+root:
+  level: DEBUG
+  handlers: [console, logrouter]
